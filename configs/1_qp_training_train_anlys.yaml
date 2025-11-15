@@ -1,0 +1,59 @@
+---
+
+optimizee-type: QuadraticUnconstrained
+input-dim: 32
+output-dim: 20
+sparsity: 5
+rho: 0
+
+optimizer: CoordMathDNN
+lstm-layers: 2
+lstm-hidden-size: 1024
+e: 100
+grad-method: smooth_grad
+
+p-use: false
+p-scale: 1.0
+p-scale-learned: false
+p-norm: sigmoid
+
+b-use: false
+b-scale: 1.0
+b-scale-learned: false
+b-norm: sigmoid
+
+b1-use: false
+b1-scale: 1.0
+b1-scale-learned: false
+b1-norm: eye
+
+b2-use: false
+b2-scale: 1.0
+b2-scale-learned: false
+b2-norm: eye
+
+a-use: false
+a-scale: 1.0
+a-scale-learned: false
+a-norm: sigmoid
+
+save-dir: "QuadraticUnconstrained"
+
+device: cuda:0
+
+init-lr: 1e-2
+global-training-steps: 50000
+optimizer-training-steps: 100
+unroll-length: 100
+train-batch-size: 32
+scheduler: "constant"
+
+val-size: 32
+val-freq: 500
+val-length: 100
+
+print-freq: 20
+
+epochs: 1
+
+loss-func: "last"
